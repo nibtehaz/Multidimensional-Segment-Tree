@@ -1,9 +1,15 @@
-# Bismillahir Rahmanir Rahim
-# Rabbi Zidni Ilma
+"""
+	بسم الله الرحمن الرحيم
+	ربِّ زِدْنِي عِلْماً 
+
+	Author : Nabil Ibtehaz
+
+	This is our implementation of the proposed 2D Segment Tree
+	in solving range multiplication query
+"""
 
 
 import numpy as np
-import matplotlib.pyplot as plt
 
 step = 0
 
@@ -216,60 +222,6 @@ class BruteForce(object):
 		return ans
 
 
-def timingSimulation():
-	N = 5
-
-	global step
-
-	li = []
-
-	segTree = SegmentTree2D(N, N)
-
-	for N in range(5, 500):
-
-		step = 0
-
-		print(N)
-
-		segTree = SegmentTree2D(N, N)
-
-		qxLo = np.random.randint(1, N)
-		qxHi = np.random.randint(1, N)
-		qyLo = np.random.randint(1, N)
-		qyHi = np.random.randint(1, N)
-		v = np.random.randint(1, N)
-
-		if (qxLo > qxHi):
-			(qxHi, qxLo) = (qxLo, qxHi)
-
-		if (qyLo > qyHi):
-			(qyHi, qyLo) = (qyLo, qyHi)
-
-		segTree.update(qxLo, qxHi, qyLo, qyHi, v)
-
-		# print(('update', qxLo, qxHi, qyLo, qyHi, v))
-
-		for i in range(100):
-
-			qxLo = np.random.randint(1, N)
-			qxHi = np.random.randint(1, N)
-			qyLo = np.random.randint(1, N)
-			qyHi = np.random.randint(1, N)
-
-			if (qxLo > qxHi):
-				(qxHi, qxLo) = (qxLo, qxHi)
-
-			if (qyLo > qyHi):
-				(qyHi, qyLo) = (qyLo, qyHi)
-
-			# print(('query', qxLo, qxHi, qyLo, qyHi))
-
-
-			segTree.query(qxLo, qxHi, qyLo, qyHi)
-		li.append(step / 100)
-
-	plt.plot(li)
-	plt.show()
 
 
 def simulation():
@@ -278,9 +230,7 @@ def simulation():
 	segTree = SegmentTree2D(N, N)
 	rectGrid = BruteForce(N, N)
 
-	while (True):
-
-		print('.')
+	while (True):		
 
 		qxLo = np.random.randint(1, N)
 		qxHi = np.random.randint(1, N)
@@ -297,6 +247,7 @@ def simulation():
 		segTree.update(qxLo, qxHi, qyLo, qyHi, v)
 		rectGrid.update(qxLo, qxHi, qyLo, qyHi, v)
 
+		print('-'*40)
 		print(('update', qxLo, qxHi, qyLo, qyHi, v))
 
 		for i in range(20):
@@ -312,17 +263,16 @@ def simulation():
 			if (qyLo > qyHi):
 				(qyHi, qyLo) = (qyLo, qyHi)
 
-			# print(('query', qxLo, qxHi, qyLo, qyHi))
-
-			if (abs(segTree.query(qxLo, qxHi, qyLo, qyHi) - rectGrid.query(qxLo, qxHi, qyLo, qyHi)) <= 1e-3):
-				print(abs(segTree.query(qxLo, qxHi, qyLo, qyHi) - rectGrid.query(qxLo, qxHi, qyLo, qyHi)),segTree.query(qxLo, qxHi, qyLo, qyHi), rectGrid.query(qxLo, qxHi, qyLo, qyHi))
-
+			if (abs(segTree.query(qxLo, qxHi, qyLo, qyHi) - rectGrid.query(qxLo, qxHi, qyLo, qyHi)) <= 1e-5):
+				print(('query', qxLo, qxHi, qyLo, qyHi))
+				print('Tree : '+str(segTree.query(qxLo, qxHi, qyLo, qyHi)) + ' , Brute Force : ' +str(rectGrid.query(qxLo, qxHi, qyLo, qyHi)) + ' , Difference : ' + str(abs(segTree.query(qxLo, qxHi, qyLo, qyHi) - rectGrid.query(qxLo, qxHi, qyLo, qyHi))))
+				
 			else:
 				print(('query', qxLo, qxHi, qyLo, qyHi))
-				print(segTree.query(qxLo, qxHi, qyLo, qyHi), rectGrid.query(qxLo, qxHi, qyLo, qyHi))
+				print('Tree : '+str(segTree.query(qxLo, qxHi, qyLo, qyHi)) + ' , Brute Force : ' +str(rectGrid.query(qxLo, qxHi, qyLo, qyHi)) + ' , Difference : ' + str(abs(segTree.query(qxLo, qxHi, qyLo, qyHi) - rectGrid.query(qxLo, qxHi, qyLo, qyHi))))
 
-				print('ERR')
-				t = input('')
+				raise Exception('ERROR')
+
 
 
 if __name__ == '__main__':
@@ -331,66 +281,4 @@ if __name__ == '__main__':
 
 	simulation()
 
-	# timingSimulation()
-
-	# t=input('')
-
-	rectGrid = BruteForce(6, 6)
-	rectGrid.update(1, 3, 2, 4, 1)
-	rectGrid.update(1, 1, 1, 2, 2)
-	rectGrid.update(2, 4, 2, 5, 1)
-	rectGrid.update(4, 5, 2, 3, 2)
-	rectGrid.update(1, 3, 1, 3, 3)
-
-	for i in rectGrid.grid:
-		print(i)
-
-	simulation()
-
-	segTree = SegmentTree2D(6, 6)
-	segTree.update(1, 3, 2, 4, 1)
-	segTree.update(1, 1, 1, 2, 2)
-	segTree.update(2, 4, 2, 5, 1)
-	segTree.update(4, 5, 2, 3, 2)
-	segTree.update(1, 3, 1, 3, 3)
-	print(segTree.query(3, 6, 1, 1))
-
-	while True:
-		qxLo = int(input(''))
-		qxHi = int(input(''))
-		qyLo = int(input(''))
-		qyHi = int(input(''))
-
-		print(segTree.query(qxLo, qxHi, qyLo, qyHi))
-
-	segTree.update(1, 3, 2, 4, 1)
-	# segTree.update(1, 1, 1, 2, 2)
-	# segTree.update(2, 4, 2, 5, 1)
-	print(segTree.query(1, 3, 1, 3))
-	print(segTree.query(1, 3, 2, 3))
-	print(segTree.query(2, 4, 2, 3))
-	print(segTree.query(1, 5, 3, 5))
-
-	segTree.update(1, 5, 1, 5, 4)
-
-	segTree.update(7, 8, 2, 6, 8)
-
-	segTree.update(2, 4, 3, 4, 2)
-
-	segTree.update(2, 3, 1, 8, 2)
-
-	print(segTree.query(1, 5, 1, 6))
-
-	while True:
-		qxLo = int(input(''))
-		qxHi = int(input(''))
-		qyLo = int(input(''))
-		qyHi = int(input(''))
-
-		print(segTree.query(qxLo, qxHi, qyLo, qyHi))
-
-
-
-
-
-
+	

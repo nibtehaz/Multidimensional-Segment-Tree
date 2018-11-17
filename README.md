@@ -26,20 +26,20 @@ Along with the code for dynamic range sum query. We have also provided the codes
 
 ### Instructions
 
-The rangeQuery.py code is sufficiently well documented. Please refer to that code, or the pseudocode in the paper to overcome any confusions regarding the implementation.
+The [rangeQuery.py](https://github.com/robin-0/Multidimensional-Segment-Tree/blob/master/python/sumQuery.py) code is sufficiently well documented. Please refer to that code, or the pseudocode in the paper to overcome any confusions regarding the implementation.
 
 All the code shares the following:
 
-1. [class]() SegmentTree2D : The proposed 2D Segment Tree implementation for solving the problem.
+1. [class](https://github.com/robin-0/Multidimensional-Segment-Tree/blob/master/python/sumQuery.py) SegmentTree2D : The proposed 2D Segment Tree implementation for solving the problem.
 
 
-2. [class]() BruteForce : A brute force algorithm to solve the problem.
+2. [class](https://github.com/robin-0/Multidimensional-Segment-Tree/blob/master/python/sumQuery.py) BruteForce : A brute force algorithm to solve the problem.
 
 
-3. [function]() timingSimulation : Function for experimentally observing the time required for the proposed 2D Segment Tree operations.
+3. [function](https://github.com/robin-0/Multidimensional-Segment-Tree/blob/master/python/sumQuery.py) timingSimulation : Function for experimentally observing the time required for the proposed 2D Segment Tree operations.
 
 
-4. [function]() simulation : Function to experimentally verify the correctness of the algorithm. We perform some random update and query operations. The identical operations are performed both using the brute force algorithm and our proposed algorithm. If the results differ by a threshold (1e-5), an error will occur.
+4. [function](https://github.com/robin-0/Multidimensional-Segment-Tree/blob/master/python/sumQuery.py) simulation : Function to experimentally verify the correctness of the algorithm. We perform some random update and query operations. The identical operations are performed both using the brute force algorithm and our proposed algorithm. If the results differ by a threshold (1e-5), an error will occur.
 
 ### Requirements
 
@@ -50,9 +50,9 @@ No additional packages are required.
 
 If you find this code useful in your research, please, consider citing our paper:
 
->@article{ibtehaz2018multidimensional,
->  title={Multidimensional segment trees can do range queries and updates in logarithmic time},
->  author={Ibtehaz, Nabil and Kaykobad, M and Rahman, M Sohel},
->  journal={arXiv preprint arXiv:1811.01226},
->  year={2018}
+>@article{ibtehaz2018multidimensional,\
+>  title={Multidimensional segment trees can do range queries and updates in logarithmic time},\
+>  author={Ibtehaz, Nabil and Kaykobad, M and Rahman, M Sohel},\
+>  journal={arXiv preprint arXiv:1811.01226},\
+>  year={2018}\
 >}

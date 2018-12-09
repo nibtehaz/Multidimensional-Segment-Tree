@@ -1,7 +1,4 @@
 """
-	بسم الله الرحمن الرحيم
-	ربِّ زِدْنِي عِلْماً 
-
 	Author : Nabil Ibtehaz
 
 	This is our implementation of the proposed 2D Segment Tree

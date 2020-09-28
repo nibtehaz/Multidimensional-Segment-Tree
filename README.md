@@ -10,9 +10,6 @@ Nabil Ibtehaz, Mohammad Kaykobad, Mohammad Sohel Rahman
 
 [paper link](https://www.researchgate.net/publication/328758294_Multidimensional_segment_trees_can_do_range_queries_and_updates_in_logarithmic_time)
 
-The webpage for this project will be available [here](). 
-
-A blogpost on this project will be available [here](). 
 
 
 ### Overview
@@ -23,6 +20,8 @@ Currently we are only giving the python implementation. However in future we are
 
 
 Along with the code for dynamic range sum query. We have also provided the codes for multiplication, AND and OR queries as well. In future codes of more operations will hopefully be added in this repository.
+
+In our future work we will provide our implementation for higher dimensions along with some additional operations.
 
 ### Instructions
 

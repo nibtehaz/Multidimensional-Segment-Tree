@@ -8,7 +8,7 @@ Multidimensional segment trees can do range queries and updates in logarithmic t
 
 Nabil Ibtehaz, Mohammad Kaykobad, Mohammad Sohel Rahman
 
-[paper link](https://www.researchgate.net/publication/328758294_Multidimensional_segment_trees_can_do_range_queries_and_updates_in_logarithmic_time)
+[paper link](https://www.sciencedirect.com/science/article/abs/pii/S0304397520306745)
 
 
 
@@ -49,9 +49,14 @@ No additional packages are required.
 
 If you find this code useful in your research, please, consider citing our paper:
 
->@article{ibtehaz2018multidimensional,\
->  title={Multidimensional segment trees can do range queries and updates in logarithmic time},\
->  author={Ibtehaz, Nabil and Kaykobad, M and Rahman, M Sohel},\
->  journal={arXiv preprint arXiv:1811.01226},\
->  year={2018}\
->}
+>@article{IBTEHAZ202130,  
+>title = {Multidimensional segment trees can do range updates in poly-logarithmic time},  
+>journal = {Theoretical Computer Science},  
+>volume = {854},  
+>pages = {30-43},  
+>year = {2021},  
+>issn = {0304-3975},  
+>doi = {https://doi.org/10.1016/j.tcs.2020.11.034},  
+>url = {https://www.sciencedirect.com/science/article/pii/S0304397520306745},  
+>author = {Nabil Ibtehaz and M. Kaykobad and M. {Sohel Rahman}},  
+>}   
